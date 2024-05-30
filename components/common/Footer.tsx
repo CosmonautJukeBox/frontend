@@ -28,11 +28,11 @@ function Product({ name, desc, link }: Project) {
           boxShadow: {
             base: useColorModeValue(
               "0 2px 5px #ccc",
-              "0 1px 3px #727272, 0 2px 12px -2px #2f2f2f",
+              "0 1px 3px #727272, 0 2px 12px -2px #2f2f2f"
             ),
             hover: useColorModeValue(
               "0 2px 5px #bca5e9",
-              "0 0 3px rgba(150, 75, 213, 0.8), 0 3px 8px -2px rgba(175, 89, 246, 0.9)",
+              "0 0 3px rgba(150, 75, 213, 0.8), 0 3px 8px -2px rgba(175, 89, 246, 0.9)"
             ),
           },
         }}
@@ -73,7 +73,7 @@ function Dependency({ name, desc, link }: Project) {
             base: "none",
             hover: useColorModeValue(
               "0 2px 5px #ccc",
-              "0 1px 3px #727272, 0 2px 12px -2px #2f2f2f",
+              "0 1px 3px #727272, 0 2px 12px -2px #2f2f2f"
             ),
           },
         }}
@@ -115,30 +115,7 @@ function Dependency({ name, desc, link }: Project) {
 export function Footer() {
   return (
     <>
-      <Box
-        display="grid"
-        gridTemplateColumns={{
-          tablet: "repeat(2, 1fr)",
-          desktop: "repeat(3, 1fr)",
-        }}
-        mb="$16"
-        gap="$12"
-      >
-        {products.map((product) => (
-          <Product key={product.name} {...product}></Product>
-        ))}
-      </Box>
-      <Box
-        display="grid"
-        gridTemplateColumns={{ tablet: "repeat(3, 1fr)" }}
-        gap="$12"
-        mb="$19"
-      >
-        {dependencies.map((dependency) => (
-          <Dependency key={dependency.name} {...dependency}></Dependency>
-        ))}
-      </Box>
-      <Box mb="$6">
+      <Box mb="$6" mt="$12">
         <Divider />
       </Box>
       <Stack
