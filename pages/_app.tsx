@@ -11,14 +11,20 @@ import {
   useColorModeValue,
   useTheme,
 } from "@interchain-ui/react";
+import { Decimal } from "@cosmjs/math";
+import { GasPrice } from "@cosmjs/stargate";
+import { SigningCosmWasmClientOptions } from "@cosmjs/cosmwasm-stargate";
 
 function CreateCosmosApp({ Component, pageProps }: AppProps) {
   const { themeClass } = useTheme();
 
   const signerOptions: SignerOptions = {
-    // signingStargate: () => {
-    //   return getSigningCosmosClientOptions();
-    // }
+    // @ts-ignore
+    signingCosmwasm: (chain) => {
+      return {
+        gasPrice: GasPrice.fromString("0.01untrn"),
+      } as SigningCosmWasmClientOptions | undefined;
+    },
   };
 
   return (
