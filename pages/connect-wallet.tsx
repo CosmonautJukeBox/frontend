@@ -1,9 +1,8 @@
 import { Layout, Wallet } from "@/components";
-import { Box, Button, Link, Stack, Text } from "@interchain-ui/react";
+import { Box, Button, Stack, Text } from "@interchain-ui/react";
+import Link from "next/link";
 
 export default function ConnectPage() {
-  function onClickTakeMeThere() {}
-
   return (
     <Layout>
       <Box
@@ -58,10 +57,17 @@ export default function ConnectPage() {
               </li>
             </ul>
             <Button
-              onClick={onClickTakeMeThere}
               attributes={{ ml: 2, mt: 20, backgroundColor: "$green200" }}
             >
-              Take me there!
+              <Link
+                href="/choose-your-mood"
+                style={{
+                  textAlign: "center",
+                  textDecoration: "underline",
+                }}
+              >
+                Take me there!
+              </Link>
             </Button>
           </Box>
         </div>

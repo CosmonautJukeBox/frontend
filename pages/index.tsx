@@ -40,8 +40,6 @@ export default function Home() {
                   <Link
                     href="/connect-wallet"
                     style={{
-                      // width: "100%",
-                      // height: "100%",
                       textAlign: "center",
                       textDecoration: "underline",
                     }}
