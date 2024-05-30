@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Divider,
   Icon,
   Link,
   Text,
@@ -8,10 +9,8 @@ import {
   useTheme,
 } from "@interchain-ui/react";
 import { dependencies } from "@/config";
-
-const stacks = ["CosmosKit", "Next.js"];
-
-const osmojs = dependencies[0];
+import Logo from "@/public/favicon.ico";
+import Image from "next/image";
 
 export function Header() {
   const { theme, setTheme } = useTheme();
@@ -22,58 +21,43 @@ export function Header() {
 
   return (
     <>
-      <Box display="flex" justifyContent="end" mb="$8">
-        <Button
-          intent="secondary"
-          size="sm"
-          attributes={{
-            paddingX: 0,
-          }}
-          onClick={toggleColorMode}
-        >
-          <Icon name={useColorModeValue("moonLine", "sunLine")} />
-        </Button>
-      </Box>
-
-      <Box textAlign="center">
-        <Text
-          as="h1"
-          fontWeight="$extrabold"
-          fontSize={{ mobile: "$6xl", tablet: "$10xl" }}
-          attributes={{
-            marginBottom: "$8",
-          }}
-        >
-          Create Cosmos App
-        </Text>
-        <Text as="h2" fontWeight="$bold">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center", // Align items along the vertical center
+        }}
+      >
+        <Box display="flex" alignItems="center">
+          {" "}
+          {/* Centering elements */}
+          <Link href={"/"} attributes={{ marginRight: "10px" }}>
+            <Image src={Logo} alt={"Logo"} height={60} />
+          </Link>
           <Text
-            as="span"
-            fontSize={{ mobile: "$3xl", tablet: "$8xl", desktop: "$8xl" }}
+            as="h1"
+            fontWeight="$extrabold"
+            fontSize={{ mobile: "$3xl", tablet: "$5xl" }}
+            attributes={{ mb: "8px" }}
           >
-            Welcome to&nbsp;
+            Cosmonaunt Juke Box
           </Text>
-          <Text
-            as="span"
-            fontSize={{ mobile: "$3xl", tablet: "$8xl", desktop: "$8xl" }}
-            color={useColorModeValue("$primary500", "$primary200")}
-          >
-            {stacks.join(" + ")}
-            {" + "}
+        </Box>
 
-            <Link
-              href={osmojs.name}
-              target="_blank"
-              rel="noreferrer"
-              attributes={{
-                color: useColorModeValue("$primary500", "$primary200"),
-                fontSize: { mobile: "$4xl", tablet: "$8xl", desktop: "$8xl" },
-              }}
-            >
-              {osmojs.name}
-            </Link>
-          </Text>
-        </Text>
+        <Box>
+          <Button
+            intent="secondary"
+            size="sm"
+            onClick={toggleColorMode}
+            attributes={{ px: 0 }}
+          >
+            <Icon name={useColorModeValue("moonLine", "sunLine")} />
+          </Button>
+        </Box>
+      </div>
+      <Box mb={"$6"}>
+        <Divider />
       </Box>
     </>
   );
