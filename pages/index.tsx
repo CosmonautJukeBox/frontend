@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Box, Button, Divider, Stack, Text } from "@interchain-ui/react";
 import { Layout, Wallet } from "@/components";
 import Image from "next/image";
