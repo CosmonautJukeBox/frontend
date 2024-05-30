@@ -112,7 +112,7 @@ const ChooseYourMoodPage: React.FC = () => {
         flexDirection="row"
       >
         {Object.keys(moods).map((mood) => (
-          <Box key={mood} maxWidth="360px" mx="auto">
+          <Box key={mood} maxWidth="360px" mx="$10">
             <NftProfileCard
               imgSrc={`/astronauts/${mood}.jpg`}
               name={`${mood.charAt(0).toUpperCase() + mood.slice(1)}`}
